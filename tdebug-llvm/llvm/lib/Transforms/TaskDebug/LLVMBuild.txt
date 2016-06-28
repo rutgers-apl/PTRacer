@@ -1,0 +1,6 @@
+[component_0]
+type = Library
+name = TaskDebug
+parent = Transforms
+library_name = TaskDebug
+required_libraries = Analysis Core IPA InstCombine Scalar Vectorize Support Target TransformUtils IPO Instrumentation
