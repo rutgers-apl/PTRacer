@@ -7,7 +7,7 @@ Prerequsites
 2) Z3 theorem prover
    - Download Z3 from the GitHub link https://github.com/Z3Prover/z3.
    - Install Z3 bindings for Python.
-   - Set PYTHONPATH to <path to Z3 install>/lib/python2.7/dist-packages
+   - export PYTHONPATH=<path to Z3 install>/lib/python2.7/dist-packages
 
 PTRacer for TBB
 ---------------
