@@ -1,14 +1,28 @@
-1. Build a)Task Debug for LLVM+CLANG 3.7 b) Task Debug library c) TBB library
-   > source build.sh
+Prerequsites
+------------
+1) CMake
+   - Download and install CMake from https://cmake.org/download/.
+   - On Ubuntu CMake can be installed using "sudo apt-get install cmake".
 
-2. To run all 36 test cases.
-   > cd av_tests
-   > python run_tests.py
+2) Z3 theorem prover
+   - Download Z3 from the GitHub link https://github.com/Z3Prover/z3.
+   - Install Z3 bindings for Python.
+   - Set PYTHONPATH to <path to Z3 install>/lib/python2.7/dist-packages
 
-3. To execute atomicity violation detection tool on traces that capture all possible interleavings that can lead to an atomicity violation
-   > cd trace_tests
-   > python trace_generator.py
+PTRacer for TBB
+---------------
+1. Build a)Task Debug for LLVM+CLANG 3.7 b) PTRacer library c) TBB library d) PTRacer Solver
+   > source build_PTRacer.sh
 
-3. To execute atomicity violation detection tool on benchmarks
-   > cd benchmarks
-   > python run_bmarks.py > output.txt
+2. To run all test cases
+   > cd test_suite
+   > python run_tests.py > report_ptracer.txt
+
+SPD3 for TBB
+------------
+1. Build a)Task Debug for LLVM+CLANG 3.7 b) SPD3 library c) TBB library
+   > source build_SPD3.sh
+
+2. To run all test cases
+   > cd test_suite
+   > python run_tests.py > report_spd3.txt
