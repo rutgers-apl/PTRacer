@@ -19,7 +19,7 @@ PTRacer for TBB
 
 2. To run all test cases
    > cd test_suite
-   > python run_tests.py > report_ptracer.txt
+   > python run_tests.py -d ptracer > report_ptracer.txt
 
 SPD3 for TBB
 ------------
@@ -28,4 +28,4 @@ SPD3 for TBB
 
 2. To run all test cases
    > cd test_suite
-   > python run_tests.py > report_spd3.txt
+   > python run_tests.py -d spd3 > report_spd3.txt
