@@ -23,3 +23,9 @@ make clean
 make
 source obj/tbbvars.sh
 cd $root_cwd
+
+echo "***** Building PTSolver *****"
+cd $root_cwd
+cd PTRacer-solver
+source solvervars.sh
+cd $root_cwd
