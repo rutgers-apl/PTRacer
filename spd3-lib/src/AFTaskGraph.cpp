@@ -22,6 +22,7 @@ void AFTaskGraph::initialize_task (size_t index,
   tgraph_nodes[index].seq_num = 0;
   tgraph_nodes[index].num_children = 0;
   tgraph_nodes[index].young_ns_child = NO_TYPE;
+  tgraph_nodes[index].sp_root_n_wt_flag = false;
 }
 
 void AFTaskGraph::Fini() {
@@ -242,6 +243,7 @@ void AFTaskGraph::CaptureSpawnAndWait(THREADID threadid, size_t taskId)
   cur_node->num_children++;
   cur_node->young_ns_child = FINISH;
   newFinish->depth = cur_node->depth + 1;
+  newFinish->sp_root_n_wt_flag = true;
 
   size_t newStep_index = create_node(STEP, newFinish->taskId);
   struct AFTask* newStep = &tgraph_nodes[newStep_index];
@@ -279,6 +281,13 @@ void AFTaskGraph::CaptureReturn(THREADID threadid)
   PIN_GetLock(&lock, 0);
 
   tidToTaskIdMap[threadid].pop();
+
+  size_t cur_index = cur[threadid].top();
+  struct AFTask* cur_node = &tgraph_nodes[cur_index];
+  if (cur_node->type == FINISH && cur_node->sp_root_n_wt_flag == false) {
+    cur[threadid].pop();
+  }
+
   cur[threadid].pop();
 
   PIN_ReleaseLock(&lock);

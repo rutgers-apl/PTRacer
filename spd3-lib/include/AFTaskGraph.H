@@ -38,6 +38,7 @@ public:
     size_t head_node = create_node(FINISH, 0);
     cur[0].push(head_node);
     tgraph_nodes[head_node].depth = 0;
+    tgraph_nodes[head_node].sp_root_n_wt_flag = true;
 
     lca_hash::createHashTable();
   }

@@ -17,6 +17,7 @@ struct AFTask {
   size_t seq_num;
   size_t num_children;
   NodeType young_ns_child; //NodeType of youngest non-step child
+  bool sp_root_n_wt_flag;
 };
 
 #endif
